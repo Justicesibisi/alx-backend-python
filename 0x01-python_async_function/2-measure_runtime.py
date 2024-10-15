@@ -1,22 +1,16 @@
 #!/usr/bin/env python3
-import time
+"""Mesures time"""
 import asyncio
-from basic_async_syntax import wait_n  # Import wait_n from the previous file
+import time
+from utils.basic_async_syntax import wait_n
 
-async def measure_time(n: int, max_delay: int) -> float:
-   
-    start_time = time.time()  # Record the start time
-    await wait_n(n, max_delay)  # Run the wait_n function
-    end_time = time.time()  # Record the end time
-    
-    total_time = end_time - start_time  # Calculate the total execution time
-    return total_time / n  # Return the average time per call
+async_comprehension = __import__('1-async_comprehension').async_comprehension
 
-# Test the measure_time function
-async def main():
-    avg_time = await measure_time(5, 10)  # Measure the runtime for 5 tasks with max_delay 10
-    print(f"Average time per call: {avg_time:.2f} seconds")
 
-# Running the test
-if __name__ == "__main__":
-    asyncio.run(main())
+async def measure_runtime() -> float:
+    """Executes async_comprehension four times in parallel
+        and measure_runtime should measure the total runtime and return it"""
+    start_time = time.perf_counter()
+    await asyncio.gather(async_comprehension(), async_comprehension(),
+                         async_comprehension(), async_comprehension())
+    return time.perf_counter() - start_time

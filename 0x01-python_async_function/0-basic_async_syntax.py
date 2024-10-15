@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
+"""Creates a generator"""
 import asyncio
 import random
+from typing import Generator
 
-async def wait_random(max_delay: int = 10) -> float:
-    
-    delay = random.uniform(0, max_delay)  # Generate random float between 0 and max_delay
-    await asyncio.sleep(delay)  # Asynchronously wait for the delay
-    return delay  # Return the delay after waiting
+
+async def async_generator() -> Generator[float, None, None]:
+    """Each time asynchronously waits 1 second,
+        then yield a random number between 0 and 10"""
+    for _ in range(0, 10):
+        await asyncio.sleep(1)
+        yield random.uniform(0, 10)

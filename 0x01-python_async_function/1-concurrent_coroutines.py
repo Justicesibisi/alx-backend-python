@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-import asyncio
-import random
+"""Generates a list from an async comprehension"""
+from typing import List
+async_generator = __import__('0-async_generator').async_generator
 
-async def wait_random(max_delay: int = 10) -> float:
-   
-    delay = random.uniform(0, max_delay)
-    await asyncio.sleep(delay)
-    return delay
+
+async def async_comprehension() -> List[float]:
+    """Collects async generated list and return it"""
+    return [_ async for _ in async_generator()]
