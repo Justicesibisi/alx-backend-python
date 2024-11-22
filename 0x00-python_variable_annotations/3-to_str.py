@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""
-Basic annotations - to string
+"""Module for task 3
 """
 
 
 def to_str(n: float) -> str:
-    """
-    cast float to string
+    """Type-annotated function that takes a float n as argument and returns
+    the string representation of the float.
+
+    Args:
+        n (float): float to convert.
+
+    Returns:
+        str: String representation of the float
     """
     return str(n)
+

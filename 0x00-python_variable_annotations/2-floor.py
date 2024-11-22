@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
-"""
-Basic annotations - floor
+"""Module for task 2
 """
 
 
-def floor(n: float) -> int:
+def floor(a: float) -> int:
+    """Type-annotated function which takes a float n as argument and returns
+    the floor of the float.
+
+    Args:
+        a (float): float to floor.
+
+    Returns:
+        int: The floor of the float.
     """
-    return floor of the number
-    """
-    return int(n)
+    return int(a)
